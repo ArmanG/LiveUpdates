@@ -1,20 +1,32 @@
 package com.example.armanghassemi.liveupdate;
 
+import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.parse.*;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            // show the homepage to user
+        } else {
+            // show the signup or login screen
+            Intent takeUserToLogin = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(takeUserToLogin);
+        }
 
     }
 

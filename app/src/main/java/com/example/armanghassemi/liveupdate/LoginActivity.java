@@ -79,6 +79,7 @@ public class LoginActivity extends Activity {
     }
 
     public void createAccount(View view){
+        // take user to register
         Intent takeUserToRegister = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(takeUserToRegister);
     }
